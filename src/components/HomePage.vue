@@ -2,6 +2,7 @@
   <div class="container">
     <div class="navMenu">
       <img src="../assets/logo.png" class="logo"/>
+      <h2>Photo Stream</h2>
       <div class="searchMenu">
         <input
           class="searchInput"
@@ -14,14 +15,25 @@
           v-on:click="search">Search</button>
       </div>
     </div>
+    <div class="grid"> 
+      <Tile
+        v-for="(item, index) in items"
+        v-bind:item="item"
+        v-bind:key="index">
+      </Tile>
+    </div>
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
+import Tile from './Tile'
 
 export default {
   name: 'HomePage',
+  components: {
+    Tile
+  },
   data: () => ({
     items: [],
     tags: ''
@@ -54,7 +66,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
   text-align: left;
@@ -69,6 +80,10 @@ export default {
   width: 5rem;
   height: 2rem;
   display: flex;
+  padding: 8px;
+}
+h2 {
+  margin: 0px;
   padding: 8px;
 }
 .searchMenu {

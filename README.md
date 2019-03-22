@@ -1,4 +1,8 @@
 # flickr-photo-stream
+```
+Clone or download project
+Enter folder -> cd flickr-photo-stream
+```
 
 ## Project setup
 ```

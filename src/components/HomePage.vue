@@ -15,7 +15,7 @@
           v-on:click="search">Search</button>
       </div>
     </div>
-    <div class="grid"> 
+    <div class="grid">
       <Tile
         v-for="(item, index) in items"
         v-bind:item="item"
@@ -38,7 +38,7 @@ export default {
     items: [],
     tags: ''
   }),
-  mounted () {
+  created () {
     $.ajax({
       url: 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?',
       dataType: 'json'

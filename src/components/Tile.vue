@@ -1,7 +1,7 @@
 <template>
   <div class="tile">
     <div class="photoContainer" v-on:click="photoOpen = true">
-      <img class="photo" v-bind:src="item.media.m">
+      <img v-lazy="item.media.m" class="photo">
     </div>
     <div class="textContainer">
       <a class="title" v-bind:href="item.link">

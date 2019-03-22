@@ -1,6 +1,6 @@
 <template>
   <div class="tile">
-    <div class="photoContainer">
+    <div class="photoContainer" v-on:click="photoOpen = true">
       <img class="photo" v-bind:src="item.media.m">
     </div>
     <div class="textContainer">
@@ -13,14 +13,24 @@
       <p v-if="getDescription()"><b>Description:</b> {{ getDescription() }}</p>
       <p v-if="getTags()"><b>Tags:</b> {{ getTags() }}</p>
     </div>
+    <Photo v-if="photoOpen" v-on:close="photoOpen = false" v-bind:item="item"></Photo>
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
+import Photo from './Photo'
 
 export default {
   name: 'Tile',
+  data () {
+    return {
+      photoOpen: false
+    }
+  },
+  components: {
+    Photo
+  },
   props: [
     'item'
   ],
